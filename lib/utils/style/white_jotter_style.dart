@@ -1,0 +1,58 @@
+import 'dart:ui';
+
+class WJStyle{
+  static const Color primaryValue = Color(0xFF267aff);
+  static const Color unselectedItemColor = Color(0xFFB3B3B3);
+  static const Color primaryLightValue = Color(0xFF42464b);
+  static const Color primaryDarkValue = Color(0xFF121917);
+
+  static const Color mainbg = Color(0xFFF5F6F7);
+  static const Color playSelectedColor = Color(0xFFF5F6F7);
+  static const Color playUnSelectedColor = Color(0xFFFFFFFF);
+  static const Color textWhite = Color(0xFFFFFFFF);
+  static const Color sedWhiteTextColor = Color(0x7dFFFFFF);
+  static const Color miWhite = Color(0xffececec);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color actionBlue = Color(0xff267aff);
+  static const Color subTextColor = Color(0xff666666);
+  static const Color sedTextColor = Color(0xffB3B3B3);
+  static const Color editBgColor = Color(0xffF5F6F7);
+  static const Color textCountDownColor = Color(0xffFFE433);
+  static const Color greenColor = Color(0xff34C759);
+  static const Color subLineColor = Color(0xffc4c4c4);
+  static const Color skipbg = Color(0xA642464b);
+  static const Color subLightTextColor = Color(0xffc4c4c4);
+  static const Color maintext = Color(0xff333333);
+  static const Color line_color = Color(0xffF0F0F0);
+  static const Color color_dcd = Color(0xffdcdcdc);
+  static const Color facebook_blue = Color(0xff3351a3);
+  static const Color red = Color(0xffFD2B20);
+  static const Color results_unselectedLabelColor = Color(0x7dFFFFFF);
+  static const Color results_LabelColor = Color(0xFFFFFFFF);
+  static const Color mainBackgroundColor = miWhite;
+
+  static const Color mainTextColor = primaryDarkValue;
+  static const Color textColorWhite = white;
+
+  static const Color color_F5F6F7 = Color(0xFFF5F6F7);
+  static const Color color_B3B3B3 = Color(0xFFB3B3B3);
+  static const Color color_306BFF = Color(0xFF306BFF);
+  static const Color color_F0F0F0 = Color(0xFFF0F0F0);
+  static const Color color_34C759 = Color(0xFF34C759);
+  static const Color color_CCCCCC = Color(0xFFCCCCCC);
+  static const Color color_F2F2F2 = Color(0xFFF2F2F2);
+  static const Color color_121917 = Color(0xFF121917);
+  static const Color color_E6EDFF = Color(0xFFE6EDFF);
+  static const Color color_FF5252 = Color(0xFFFF5252);
+  static const Color color_F8F8F8 = Color(0xFFF8F8F8);
+  static const Color color_7C7C7C = Color(0xFF7C7C7C);
+  static const Color color_FF002E = Color(0xFFFF002E);
+  static const Color color_6F6F6F = Color(0xFF6F6F6F);
+  static const Color color_1D1D1D = Color(0xFF1D1D1D);
+  static const Color color_C4C4C4 = Color(0xFFC4C4C4);
+  static const Color color_FFFFFF = Color(0xFFFFFFFF);
+  static const Color color_D8D8D8 = Color(0xFFD8D8D8);
+  static const Color color_A2A2A2 = Color(0xFFA2A2A2);
+  static const Color color_333333 = Color(0xFF333333);
+  static const Color color_242625 = Color(0xFF242625);
+}
