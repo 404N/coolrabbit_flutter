@@ -16,8 +16,8 @@ class _WelcomePageState extends State<WelcomePage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      new Future.delayed(const Duration(milliseconds: 3000), () {
-        Navigator.pushReplacementNamed(context, HomePage.sName);
+      Future.delayed(const Duration(milliseconds: 3000), () {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
       });
     });
   }
@@ -32,9 +32,6 @@ class _WelcomePageState extends State<WelcomePage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // Spacer(
-                //   flex: 2,
-                // ),
                 Expanded(
                   child: Center(
                     child: Image(
@@ -44,18 +41,6 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                   ),
                 ),
-                // Spacer(),
-                // Expanded(
-                //   child: Center(
-                //     child: Icon(
-                //       Icons.all_inclusive_sharp,
-                //       size: 100,
-                //     ),
-                //   ),
-                // ),
-                // Spacer(
-                //   flex: 2,
-                // ),
                 skipWidget(),
                 SizedBox(
                   height: 30,
@@ -92,7 +77,7 @@ class _WelcomePageState extends State<WelcomePage> {
             style: TextStyle(color: Colors.white),
           ),
           onPressed: () {
-            Navigator.pushReplacementNamed(context, HomePage.sName);
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
           },
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),

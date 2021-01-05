@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:white_jotter_app/page/home_page.dart';
 import 'package:white_jotter_app/page/welcome_page.dart';
 
-
 ///配置路由
 Map<String, WidgetBuilder> routes = {
   WelcomePage.sName: (context) {

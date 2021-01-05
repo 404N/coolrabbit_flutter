@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+
+class NotePage extends StatefulWidget {
+  @override
+  _NotePageState createState() => _NotePageState();
+}
+
+class _NotePageState extends State<NotePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Center(child: Text("笔记本"),),);
+  }
+}
