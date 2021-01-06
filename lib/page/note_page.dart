@@ -9,7 +9,7 @@ class NotePage extends StatefulWidget {
   _NotePageState createState() => _NotePageState();
 }
 
-class _NotePageState extends State<NotePage> {
+class _NotePageState extends State<NotePage> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -40,4 +40,7 @@ class _NotePageState extends State<NotePage> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

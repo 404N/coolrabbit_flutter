@@ -9,7 +9,7 @@ class IndexPage extends StatefulWidget {
   _IndexPageState createState() => _IndexPageState();
 }
 
-class _IndexPageState extends State<IndexPage> {
+class _IndexPageState extends State<IndexPage> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,4 +31,7 @@ class _IndexPageState extends State<IndexPage> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

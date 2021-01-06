@@ -12,6 +12,7 @@ import 'note_page.dart';
 class HomePage extends StatefulWidget {
   static final String sName = "Home";
   BuildContext context;
+
   HomePage(this.context);
 
   @override
@@ -22,13 +23,13 @@ class _HomePageState extends State<HomePage> {
   final List<BottomNavigationBarItem> bottomTabs = [
     BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: '首页'),
     BottomNavigationBarItem(icon: Icon(CupertinoIcons.pencil), label: '笔记本'),
-    BottomNavigationBarItem(
-        icon: Icon(CupertinoIcons.command), label: '动态'),
+    BottomNavigationBarItem(icon: Icon(CupertinoIcons.command), label: '动态'),
     BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.profile_circled), label: '个人中心')
   ];
 
   List<Widget> tabBodies;
+  PageController _pageController=PageController();
 
   @override
   void initState() {
@@ -48,12 +49,21 @@ class _HomePageState extends State<HomePage> {
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, HomeState state) {
           return Scaffold(
-            body: tabBodies[state.selectIndex],
+            body: PageView.builder(
+              //要点1
+              physics: NeverScrollableScrollPhysics(),
+              //禁止页面左右滑动切换
+              controller: _pageController,
+              //回调函数
+              itemCount: 4,
+              itemBuilder: (context, index) => tabBodies[index],
+            ),
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               currentIndex: state.selectIndex,
               items: bottomTabs,
               onTap: (index) {
+                _pageController.jumpToPage(index);
                 BlocProvider.of<HomeBloc>(context).add(HomeSwitch(index));
               },
             ),
