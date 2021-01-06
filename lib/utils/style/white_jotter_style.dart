@@ -1,6 +1,6 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
-class WJStyle{
+class WJColors{
   static const Color primaryValue = Color(0xFF267aff);
   static const Color unselectedItemColor = Color(0xFFB3B3B3);
   static const Color primaryLightValue = Color(0xFF42464b);
@@ -55,4 +55,34 @@ class WJStyle{
   static const Color color_A2A2A2 = Color(0xFFA2A2A2);
   static const Color color_333333 = Color(0xFF333333);
   static const Color color_242625 = Color(0xFF242625);
+}
+
+class WjStyle {
+  static const lagerTextSize = 30.0;
+  static const bigTextSize = 23.0;
+  static const normalTextSize = 18.0;
+  static const middleTextSize = 16.0;
+  static const smallTextSize = 14.0;
+  static const minTextSize = 11.0;
+  static const bigText25 = 25.0;
+  static const size12 = 12.0;
+  static const size20 = 20.0;
+  static const size9 = 9.0;
+  static const size10 = 10.0;
+  static const size21 = 21.0;
+  static const size13 = 13.0;
+  static const size14 = 14.0;
+  static const size15 = 15.0;
+  static const size16 = 16.0;
+  static const size18 = 18.0;
+  static const size24 = 24.0;
+  static const size29 = 29.0;
+  static const size8 = 8.0;
+
+
+  static const appBarStyle = TextStyle(
+    color: WJColors.mainTextColor,
+    fontSize: size18,
+    fontWeight: FontWeight.bold,
+  );
 }

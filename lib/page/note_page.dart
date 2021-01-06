@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:white_jotter_app/page/note_bloc/note_bloc.dart';
+import 'package:white_jotter_app/utils/style/white_jotter_style.dart';
+import 'package:white_jotter_app/widget/note_widget.dart';
 
 class NotePage extends StatefulWidget {
   @override
@@ -8,6 +12,32 @@ class NotePage extends StatefulWidget {
 class _NotePageState extends State<NotePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Center(child: Text("笔记本"),),);
+    return BlocProvider(
+      create: (BuildContext context) => NoteBloc()..add(NoteInitial()),
+      child: BlocBuilder<NoteBloc, NoteState>(
+        builder: (context, NoteState state) {
+          if(state.noteEntity==null){
+            return CircularProgressIndicator();
+          }
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("笔记本",style: WjStyle.appBarStyle,),
+              backgroundColor: WJColors.color_F5F6F7,
+              centerTitle: true,
+              elevation: 0,
+            ),
+            body: Container(
+              color: WJColors.color_F5F6F7,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return NoteWidget(state.noteEntity.content[index]);
+                },
+                itemCount: state.noteEntity.content.length,
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }

@@ -12,12 +12,15 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+  bool isJump=false;
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       Future.delayed(const Duration(milliseconds: 3000), () {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+        if(!isJump){
+          Navigator.pushReplacementNamed(context, HomePage.sName);
+        }
       });
     });
   }
@@ -67,7 +70,7 @@ class _WelcomePageState extends State<WelcomePage> {
       height: 40,
       width: 250,
       decoration: BoxDecoration(
-        color: WJStyle.primaryValue,
+        color: WJColors.primaryValue,
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
       child: Center(
@@ -77,7 +80,8 @@ class _WelcomePageState extends State<WelcomePage> {
             style: TextStyle(color: Colors.white),
           ),
           onPressed: () {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+            isJump=true;
+            Navigator.pushReplacementNamed(context, HomePage.sName);
           },
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),

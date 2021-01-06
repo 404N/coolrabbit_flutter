@@ -9,7 +9,7 @@ Map<String, WidgetBuilder> routes = {
   },
   //首页
   HomePage.sName: (context) {
-    return HomePage();
+    return HomePage(context);
   },
 };
 

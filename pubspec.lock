@@ -99,6 +99,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.10"
+  dokit:
+    dependency: "direct main"
+    description:
+      name: dokit
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.2.5"
   equatable:
     dependency: "direct main"
     description:
@@ -240,6 +247,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.0.4"
+  package_info:
+    dependency: transitive
+    description:
+      name: package_info
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.3+2"
   path:
     dependency: transitive
     description:
@@ -434,6 +448,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.0-nullsafety.3"
+  vm_service:
+    dependency: transitive
+    description:
+      name: vm_service
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "5.5.0"
   webview_flutter:
     dependency: "direct main"
     description:

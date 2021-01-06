@@ -8,6 +8,21 @@ class LibraryPage extends StatefulWidget {
 class _LibraryPageState extends State<LibraryPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Center(child: Text("图书馆"),),);
+    return Center(
+      child: Flex(
+        direction: MediaQuery.of(context).orientation == Orientation.portrait
+            ? Axis.vertical
+            : Axis.horizontal,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: List.generate(
+          5,
+          (index) => Container(
+            height: 100,
+            width: 100,
+            color: Colors.blue,
+          ),
+        ),
+      ),
+    );
   }
 }
