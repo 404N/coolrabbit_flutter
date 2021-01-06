@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:white_jotter_app/entity/note_entity.dart';
 import 'package:white_jotter_app/res.dart';
@@ -5,6 +6,7 @@ import 'package:white_jotter_app/utils/style/white_jotter_style.dart';
 
 class NoteWidget extends StatefulWidget {
   NoteContent content;
+
   NoteWidget(this.content);
 
   @override
@@ -16,7 +18,7 @@ class _NoteWidgetState extends State<NoteWidget> {
   Widget build(BuildContext context) {
     return Container(
       height: 150,
-      padding: EdgeInsets.only(top: 0, right: 15, left: 15,bottom: 15),
+      padding: EdgeInsets.only(top: 0, right: 15, left: 15, bottom: 15),
       child: Card(
         //设置圆角
         shape: const RoundedRectangleBorder(
@@ -30,7 +32,11 @@ class _NoteWidgetState extends State<NoteWidget> {
           padding: const EdgeInsets.all(15.0),
           child: Row(
             children: [
-              Image(image: AssetImage(Res.wj_cat)),
+              Image(
+                image: NetworkImage(widget.content.articleCover),
+                width: 70,
+                height: 70,
+              ),
               SizedBox(
                 width: 10,
               ),

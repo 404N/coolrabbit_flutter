@@ -17,7 +17,7 @@ class _NotePageState extends State<NotePage> {
       child: BlocBuilder<NoteBloc, NoteState>(
         builder: (context, NoteState state) {
           if(state.noteEntity==null){
-            return CircularProgressIndicator();
+            return Container();
           }
           return Scaffold(
             appBar: AppBar(
