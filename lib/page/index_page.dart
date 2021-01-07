@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:white_jotter_app/utils/style/white_jotter_style.dart';
 import 'package:white_jotter_app/widget/note_widget.dart';
 
