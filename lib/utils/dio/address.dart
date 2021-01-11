@@ -5,4 +5,8 @@ class Address {
   static String getNote(int size, int page) {
     return "api/article/$size/$page";
   }
+
+  static String getBooks() {
+    return "api/books";
+  }
 }

@@ -85,4 +85,15 @@ class WjStyle {
     fontSize: size18,
     fontWeight: FontWeight.bold,
   );
+
+  static const bookTitleStyle=TextStyle(
+    color: WJColors.primaryDarkValue,
+    fontSize: size12,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const bookAuthorStyle=TextStyle(
+    color: WJColors.color_6F6F6F,
+    fontSize: size8,
+  );
 }

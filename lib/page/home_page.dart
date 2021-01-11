@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   final List<BottomNavigationBarItem> bottomTabs = [
     BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: '首页'),
     BottomNavigationBarItem(icon: Icon(CupertinoIcons.pencil), label: '笔记本'),
-    BottomNavigationBarItem(icon: Icon(CupertinoIcons.command), label: '动态'),
+    BottomNavigationBarItem(icon: Icon(CupertinoIcons.book_solid), label: '图书馆'),
     BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.profile_circled), label: '个人中心')
   ];

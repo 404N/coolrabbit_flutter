@@ -4,16 +4,10 @@ import 'package:white_jotter_app/entity/note_entity.dart';
 import 'package:white_jotter_app/res.dart';
 import 'package:white_jotter_app/utils/style/white_jotter_style.dart';
 
-class NoteWidget extends StatefulWidget {
-  NoteContent content;
+class NoteWidget extends StatelessWidget {
+  final NoteContent content;
 
-  NoteWidget(this.content);
-
-  @override
-  _NoteWidgetState createState() => _NoteWidgetState();
-}
-
-class _NoteWidgetState extends State<NoteWidget> {
+  const NoteWidget(this.content);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,10 +26,13 @@ class _NoteWidgetState extends State<NoteWidget> {
           padding: const EdgeInsets.all(15.0),
           child: Row(
             children: [
-              Image(
-                image: NetworkImage(widget.content.articleCover),
-                width: 70,
+              CachedNetworkImage(
                 height: 70,
+                width: 70,
+                imageUrl: content.articleCover,
+                placeholder: (context, url) => Icon(Icons.stream),
+                errorWidget: (context, url, error) => Icon(Icons.cloud_download),
+                fit: BoxFit.cover,
               ),
               SizedBox(
                 width: 10,
@@ -48,7 +45,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          widget.content.articleTitle,
+                          content.articleTitle,
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -60,7 +57,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                     Expanded(
                       child: Center(
                         child: Text(
-                          widget.content.articleAbstract,
+                          content.articleAbstract,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
