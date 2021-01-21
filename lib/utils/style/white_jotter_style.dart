@@ -1,6 +1,40 @@
 import 'package:flutter/material.dart';
 
+
 class WJColors{
+  static const int primaryIntValue = 0xFFF5F6F7;
+
+  static const MaterialColor primarySwatch = const MaterialColor(
+    primaryIntValue,
+    const <int, Color>{
+      50: const Color(primaryIntValue),
+      100: const Color(primaryIntValue),
+      200: const Color(primaryIntValue),
+      300: const Color(primaryIntValue),
+      400: const Color(primaryIntValue),
+      500: const Color(primaryIntValue),
+      600: const Color(primaryIntValue),
+      700: const Color(primaryIntValue),
+      800: const Color(primaryIntValue),
+      900: const Color(primaryIntValue),
+    },
+  );
+  static const int primarySelectDate = 0xFF316AFF;
+  static const MaterialColor primarySelectDateSwatch = const MaterialColor(
+    primarySelectDate,
+    const <int, Color>{
+      50: const Color(primarySelectDate),
+      100: const Color(primarySelectDate),
+      200: const Color(primarySelectDate),
+      300: const Color(primarySelectDate),
+      400: const Color(primarySelectDate),
+      500: const Color(primarySelectDate),
+      600: const Color(primarySelectDate),
+      700: const Color(primarySelectDate),
+      800: const Color(primarySelectDate),
+      900: const Color(primarySelectDate),
+    },
+  );
   static const Color primaryValue = Color(0xFF267aff);
   static const Color unselectedItemColor = Color(0xFFB3B3B3);
   static const Color primaryLightValue = Color(0xFF42464b);

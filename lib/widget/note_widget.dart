@@ -1,13 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:white_jotter_app/entity/note_entity.dart';
-import 'package:white_jotter_app/res.dart';
-import 'package:white_jotter_app/utils/style/white_jotter_style.dart';
+import 'package:white_jotter_app/page/note_detail/note_detail_page.dart';
+import 'package:white_jotter_app/utils/widget_extention_util.dart';
+
+import 'markdown_widget.dart';
 
 class NoteWidget extends StatelessWidget {
   final NoteContent content;
 
   const NoteWidget(this.content);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +34,8 @@ class NoteWidget extends StatelessWidget {
                 width: 70,
                 imageUrl: content.articleCover,
                 placeholder: (context, url) => Icon(Icons.stream),
-                errorWidget: (context, url, error) => Icon(Icons.cloud_download),
+                errorWidget: (context, url, error) =>
+                    Icon(Icons.cloud_download),
                 fit: BoxFit.cover,
               ),
               SizedBox(
@@ -67,6 +71,16 @@ class NoteWidget extends StatelessWidget {
                 ),
               )
             ],
+          ),
+        ),
+      ),
+    ).gestureDetectorExtension(
+      () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => NoteDetailPage(
+            title: content.articleTitle,
+            content: content.articleContentMd,
           ),
         ),
       ),

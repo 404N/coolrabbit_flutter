@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:white_jotter_app/route.dart';
 
+import 'utils/style/white_jotter_style.dart';
+import 'utils/style/white_jotter_style.dart';
+import 'utils/style/white_jotter_style.dart';
+import 'utils/style/white_jotter_style.dart';
+
 class App extends StatefulWidget {
   @override
   _AppState createState() => _AppState();
@@ -23,6 +28,14 @@ class _AppState extends State<App> {
     return MaterialApp(
       ///根据路由文件自动生成的路由
       onGenerateRoute: onGenerateRoute,
+      theme: ThemeData(
+        primarySwatch: WJColors.primarySwatch,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: WJColors.color_306BFF,
+          unselectedItemColor: WJColors.color_333333,
+        ),
+        platform: TargetPlatform.iOS,
+      ),
       builder: (BuildContext context, Widget child) {
         return FlutterEasyLoading(
           child: GestureDetector(
@@ -43,5 +56,3 @@ class _AppState extends State<App> {
     }
   }
 }
-
-
