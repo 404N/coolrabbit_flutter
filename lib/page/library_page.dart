@@ -4,13 +4,15 @@ import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:white_jotter_app/page/library_bloc/library_bloc.dart';
 import 'package:white_jotter_app/utils/style/white_jotter_style.dart';
 import 'package:white_jotter_app/widget/book_widget.dart';
+import 'package:white_jotter_app/widget/loading_widget.dart';
 
 class LibraryPage extends StatefulWidget {
   @override
   _LibraryPageState createState() => _LibraryPageState();
 }
 
-class _LibraryPageState extends State<LibraryPage> {
+class _LibraryPageState extends State<LibraryPage>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -18,7 +20,7 @@ class _LibraryPageState extends State<LibraryPage> {
       child: BlocBuilder<LibraryBloc, LibraryState>(
         builder: (context, LibraryState state) {
           if (state.list == null) {
-            return Container();
+            return LoadingWidget();
           }
           return Scaffold(
             appBar: AppBar(
@@ -38,7 +40,9 @@ class _LibraryPageState extends State<LibraryPage> {
                     crossAxisCount: 3,
                   ),
                   itemBuilder: (context, index) {
-                    return BookWidget(bookEntity: state.list[index],);
+                    return BookWidget(
+                      bookEntity: state.list[index],
+                    );
                   },
                   itemCount: state.list.length,
                 ),
@@ -52,4 +56,7 @@ class _LibraryPageState extends State<LibraryPage> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
