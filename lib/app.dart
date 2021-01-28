@@ -29,10 +29,13 @@ class _AppState extends State<App> {
       ///根据路由文件自动生成的路由
       onGenerateRoute: onGenerateRoute,
       theme: ThemeData(
-        primarySwatch: WJColors.primarySwatch,
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedItemColor: WJColors.color_306BFF,
-          unselectedItemColor: WJColors.color_333333,
+        // primarySwatch: WJColors.primarySwatch,
+        // bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        //   selectedItemColor: WJColors.color_306BFF,
+        //   unselectedItemColor: WJColors.color_333333,
+        // ),
+        appBarTheme: AppBarTheme(
+            iconTheme:IconThemeData(color: Colors.black),
         ),
         platform: TargetPlatform.iOS,
       ),
