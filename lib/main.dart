@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:white_jotter_app/viewmodel/service_locator.dart';
 
 import 'app.dart';
@@ -14,6 +15,8 @@ void main() async {
     //   useInRelease: false,
     // );
     setupServiceLocator();
+    WidgetsFlutterBinding.ensureInitialized();
+    SpUtil.getInstance();
     runApp(
       ScreenUtilInit(
         designSize: Size(360, 690),
