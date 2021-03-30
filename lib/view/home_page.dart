@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       label: '最新',
     ),
     BottomNavigationBarItem(
-      icon: Icon(AppIcons.unfolder),
+      icon: Icon(AppIcons.unFolder),
       activeIcon: Icon(
         AppIcons.folder,
       ),

@@ -2,23 +2,18 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/screen_util.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
-import 'package:sp_util/sp_util.dart';
-import 'package:white_jotter_app/utils/dio/dio_util.dart';
 import 'package:white_jotter_app/viewmodel/service_locator.dart';
 
 import 'app.dart';
 
 void main() async {
-  setupServiceLocator();
-  SpUtil.getInstance();
-  DioUtil.initInstance();
   runZoned(() {
     // DoKit.runApp(
     //   app: DoKitApp(App()),
     //   useInRelease: false,
     // );
+    setupServiceLocator();
     runApp(
       ScreenUtilInit(
         designSize: Size(360, 690),

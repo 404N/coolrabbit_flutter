@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:white_jotter_app/route.dart';
+import 'package:white_jotter_app/utils/dio/dio_util.dart';
 
 
 class App extends StatefulWidget {
@@ -9,6 +11,14 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+
+  @override
+  void initState() {
+    DioUtil.initInstance();
+    SpUtil.getInstance();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ///easyload初始化

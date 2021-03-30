@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppIcons {
   static const IconData news = const IconData(
-    0xe692,
+    0xe9da,
     fontFamily: "Icons",
     matchTextDirection: true,
   );
@@ -12,12 +12,12 @@ class AppIcons {
     matchTextDirection: true,
   );
   static const IconData folder = const IconData(
-    0xe838,
+    0xe600,
     fontFamily: "Icons",
     matchTextDirection: true,
   );
 
-  static const IconData unfolder = const IconData(
+  static const IconData unFolder = const IconData(
     0xe63c,
     fontFamily: "Icons",
     matchTextDirection: true,
@@ -33,7 +33,7 @@ class AppIcons {
     matchTextDirection: true,
   );
   static const IconData my = const IconData(
-    0xe63f,
+    0xe646,
     fontFamily: "Icons",
     matchTextDirection: true,
   );
