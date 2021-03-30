@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:white_jotter_app/page/home_page.dart';
-import 'package:white_jotter_app/page/welcome_page.dart';
+import 'package:white_jotter_app/view/home_page.dart';
+import 'package:white_jotter_app/view/welcome_page.dart';
+
+
 
 ///配置路由
 Map<String, WidgetBuilder> routes = {
@@ -9,7 +11,7 @@ Map<String, WidgetBuilder> routes = {
   },
   //首页
   HomePage.sName: (context) {
-    return HomePage(context);
+    return HomePage();
   },
 };
 

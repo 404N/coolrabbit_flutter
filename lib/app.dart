@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:white_jotter_app/route.dart';
 
-import 'utils/style/white_jotter_style.dart';
-import 'utils/style/white_jotter_style.dart';
-import 'utils/style/white_jotter_style.dart';
-import 'utils/style/white_jotter_style.dart';
 
 class App extends StatefulWidget {
   @override
@@ -35,7 +31,7 @@ class _AppState extends State<App> {
         //   unselectedItemColor: WJColors.color_333333,
         // ),
         appBarTheme: AppBarTheme(
-            iconTheme:IconThemeData(color: Colors.black),
+          iconTheme:IconThemeData(color: Colors.black),
         ),
         platform: TargetPlatform.iOS,
       ),
