@@ -43,7 +43,6 @@ class DioUtil {
   /// 请求
   static Future<Response<BaseEntity>> request(String url, RequestMethod method,
       {
-
       /// 参数
       Map<String, dynamic> data,
 
@@ -87,7 +86,7 @@ class DioUtil {
       if (showLoading) {
         EasyLoading.dismiss();
       }
-      if (value.data.code == 0) {
+      if (value.data.code == 200) {
         // 请求成功
         if (successTips || tips) {
           EasyLoading.showInfo(value.data.message);
