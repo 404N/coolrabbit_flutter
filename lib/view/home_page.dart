@@ -74,18 +74,24 @@ class _HomePageState extends State<HomePage> {
         builder: (context, model, child) {
           return Scaffold(
             body: child,
-            bottomNavigationBar: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              currentIndex: model.index,
-              items: bottomTabs,
-              selectedItemColor: WJColors.color_306BFF,
-              unselectedItemColor: Colors.black,
-              selectedFontSize: 12,
-              unselectedFontSize: 12,
-              onTap: (index) {
-                _pageController.jumpToPage(index);
-                model.switchIndex(index);
-              },
+            bottomNavigationBar: Theme(
+              data: Theme.of(context).copyWith(
+                //设置背景色`BottomNavigationBar`
+                canvasColor: WJColors.color_F5F6F7,
+              ),
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                currentIndex: model.index,
+                items: bottomTabs,
+                selectedItemColor: WJColors.color_306BFF,
+                unselectedItemColor: Colors.black,
+                selectedFontSize: 12,
+                unselectedFontSize: 12,
+                onTap: (index) {
+                  _pageController.jumpToPage(index);
+                  model.switchIndex(index);
+                },
+              ),
             ),
           );
         },

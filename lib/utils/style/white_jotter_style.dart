@@ -157,4 +157,16 @@ class WjStyle {
     fontSize: size16,
     fontWeight: FontWeight.bold,
   );
+
+  //文件夹
+  static TextStyle folderTitleStyle = TextStyle(
+    color: WJColors.primaryDarkValue,
+    fontSize: size16,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle folderDataStyle = TextStyle(
+    color: WJColors.color_CCCCCC,
+    fontSize: size12,
+  );
 }
