@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:white_jotter_app/utils/style/white_jotter_style.dart';
+import 'package:white_jotter_app/utils/common/widget_extention_util.dart';
+import 'package:white_jotter_app/view/person/login_view.dart';
 
 class PersonalView extends StatefulWidget {
   @override
@@ -19,8 +21,15 @@ class _PersonalViewState extends State<PersonalView> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Center(
-        child: Text("个人中心"),
+      body: Container(
+        height: 60,
+        width: 120,
+        color: Colors.blue,
+        child: Center(
+          child: Text("登陆"),
+        ),
+      ).gestureDetectorExtension(
+        () => Navigator.pushNamed(context, LoginView.sName),
       ),
     );
   }

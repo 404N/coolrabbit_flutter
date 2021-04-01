@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:white_jotter_app/utils/style/icons.dart';
 import 'package:white_jotter_app/utils/style/white_jotter_style.dart';
-import 'package:white_jotter_app/view/collect/collect.dart';
-import 'package:white_jotter_app/view/folder/folder.dart';
-import 'package:white_jotter_app/view/news/news.dart';
-import 'package:white_jotter_app/view/person/personal.dart';
+import 'package:white_jotter_app/view/collect/collect_view.dart';
+import 'package:white_jotter_app/view/folder/folder_view.dart';
+import 'package:white_jotter_app/view/news/news_view.dart';
+import 'package:white_jotter_app/view/person/personal_view.dart';
 import 'package:white_jotter_app/viewmodel/home_viewmodel.dart';
 import 'package:white_jotter_app/viewmodel/service_locator.dart';
 

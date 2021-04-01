@@ -1,14 +1,14 @@
 class BaseEntity<T> {
 
-  int code;
-  String message;
-  T result;
+  String code;
+  String msg;
+  T data;
 
-  BaseEntity(this.code, this.message, this.result);
+  BaseEntity(this.code, this.msg, this.data);
 
   BaseEntity.fromJson(Map<String, dynamic> json) {
     code = json['code'] ?? json['Code'];
-    message = json['message'] ?? json['Message'];
-    result = json['result'] ?? json['Result'];
+    msg = json['msg'] ?? json['Msg'];
+    data = json['data'] ?? json['data'];
   }
 }
