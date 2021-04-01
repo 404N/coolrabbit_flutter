@@ -15,7 +15,7 @@ class FolderView extends StatefulWidget {
   _FolderViewState createState() => _FolderViewState();
 }
 
-class _FolderViewState extends State<FolderView> {
+class _FolderViewState extends State<FolderView> with AutomaticKeepAliveClientMixin {
   FolderViewModel model = serviceLocator<FolderViewModel>();
 
   @override
@@ -64,34 +64,37 @@ class _FolderViewState extends State<FolderView> {
                     ],
                     color: WJColors.color_F5F6F7,
                   ),
-                  child: PopupMenuButton<String>(
-                    itemBuilder: (BuildContext context) =>
-                        <PopupMenuItem<String>>[
-                      PopupMenuItem<String>(
-                        value: '0',
-                        child: Text('新建文件夹'),
-                      ),
-                      PopupMenuItem<String>(
-                        value: '1',
-                        child: Text('按修改时间'),
-                      ),
-                      PopupMenuItem<String>(
-                        value: '2',
-                        child: Text('按创建时间'),
-                      ),
-                    ],
-                    onSelected: (String action) {
-                      // 点击选项的时候
-                      switch (action) {
-                        case '0':
-                          popDialog();
-                          break;
-                        case '1':
-                          break;
-                        case '2':
-                          break;
-                      }
-                    },
+                  child: Center(
+                    child: PopupMenuButton<String>(
+                      icon: Icon(Icons.more_horiz_sharp),
+                      itemBuilder: (BuildContext context) =>
+                          <PopupMenuItem<String>>[
+                        PopupMenuItem<String>(
+                          value: '0',
+                          child: Text('新建文件夹'),
+                        ),
+                        PopupMenuItem<String>(
+                          value: '1',
+                          child: Text('按修改时间'),
+                        ),
+                        PopupMenuItem<String>(
+                          value: '2',
+                          child: Text('按创建时间'),
+                        ),
+                      ],
+                      onSelected: (String action) {
+                        // 点击选项的时候
+                        switch (action) {
+                          case '0':
+                            popDialog();
+                            break;
+                          case '1':
+                            break;
+                          case '2':
+                            break;
+                        }
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -101,7 +104,7 @@ class _FolderViewState extends State<FolderView> {
         ),
         body: Consumer<FolderViewModel>(
           builder: (context, model, child) {
-            if(model.folderList==null){
+            if (model.folderList == null) {
               return LoadingWidget();
             }
             return Container(
@@ -126,12 +129,12 @@ class _FolderViewState extends State<FolderView> {
                                 );
                               } else {
                                 return FolderOrNoteWidget(
-                                  title: model.folderList[index-1].folderName,
-                                  date: model.folderList[index-1].fatherId,
+                                  title: model.folderList[index - 1].folderName,
+                                  date: model.folderList[index - 1].fatherId,
                                 );
                               }
                             },
-                            childCount: model.folderList.length+1,
+                            childCount: model.folderList.length + 1,
                           ),
                         ),
                       ],
@@ -210,4 +213,7 @@ class _FolderViewState extends State<FolderView> {
       },
     );
   }
+
+  @override
+  bool wantKeepAlive=true;
 }

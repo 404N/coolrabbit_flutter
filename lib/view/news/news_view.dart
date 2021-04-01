@@ -6,7 +6,8 @@ class NewsView extends StatefulWidget {
   _NewsViewState createState() => _NewsViewState();
 }
 
-class _NewsViewState extends State<NewsView> {
+class _NewsViewState extends State<NewsView>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,4 +23,7 @@ class _NewsViewState extends State<NewsView> {
       body: Container(),
     );
   }
+
+  @override
+  bool wantKeepAlive = true;
 }

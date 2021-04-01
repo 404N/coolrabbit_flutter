@@ -23,9 +23,9 @@ class DioUtil {
 // 请求实例
   static Dio instance;
 
-  // static final baseUrl = "http://101.37.70.95:8080/";
+  static final baseUrl = "http://101.37.70.95:8080/";
 
-  static final baseUrl = "http://localhost:8080/";
+  // static final baseUrl = "http://localhost:8080/";
 
   // 初始化请求实例
   static void initInstance() {

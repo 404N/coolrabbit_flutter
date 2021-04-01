@@ -8,7 +8,7 @@ class PersonalView extends StatefulWidget {
   _PersonalViewState createState() => _PersonalViewState();
 }
 
-class _PersonalViewState extends State<PersonalView> {
+class _PersonalViewState extends State<PersonalView> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,4 +33,7 @@ class _PersonalViewState extends State<PersonalView> {
       ),
     );
   }
+
+  @override
+  bool wantKeepAlive = true;
 }

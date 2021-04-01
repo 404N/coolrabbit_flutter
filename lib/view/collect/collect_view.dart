@@ -6,7 +6,7 @@ class CollectView extends StatefulWidget {
   _CollectViewState createState() => _CollectViewState();
 }
 
-class _CollectViewState extends State<CollectView> {
+class _CollectViewState extends State<CollectView> with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,4 +22,7 @@ class _CollectViewState extends State<CollectView> {
       body: Container(),
     );
   }
+
+  @override
+  bool wantKeepAlive =true;
 }
