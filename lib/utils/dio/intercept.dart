@@ -38,9 +38,9 @@ class LoggingInterceptor extends Interceptor {
 
     print("RequestMethod: " + options.method);
     print("RequestHeaders:" + options.headers.toString());
+    print("token:" + options.headers['Authorization'].toString());
     print("RequestContentType: ${options.contentType}");
     print("RequestData: $logData");
-
     return super.onRequest(options);
   }
 

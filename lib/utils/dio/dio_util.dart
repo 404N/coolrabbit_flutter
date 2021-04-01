@@ -23,9 +23,9 @@ class DioUtil {
 // 请求实例
   static Dio instance;
 
-  static final baseUrl = "http://101.37.70.95:8080/";
+  // static final baseUrl = "http://101.37.70.95:8080/";
 
-  // static final baseUrl = "http://localhost:8080/";
+  static final baseUrl = "http://localhost:8080/";
 
   // 初始化请求实例
   static void initInstance() {
@@ -46,7 +46,6 @@ class DioUtil {
         return true;
       };
     };
-    DioUtil.instance.interceptors.add(LoggingInterceptor());
 
     /// 统一添加身份验证请求头
     DioUtil.instance.interceptors.add(
@@ -57,6 +56,7 @@ class DioUtil {
         }
         options.contentType = Headers.jsonContentType;
         options.responseType = ResponseType.json;
+        print(options.headers['Authorization']);
         return options;
       }, onResponse: (option) async {
         if (option.statusCode == HttpStatus.ok) {
@@ -71,6 +71,7 @@ class DioUtil {
         return option;
       }),
     );
+    DioUtil.instance.interceptors.add(LoggingInterceptor());
   }
 
   /// 请求

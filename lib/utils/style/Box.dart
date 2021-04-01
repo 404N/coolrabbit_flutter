@@ -6,6 +6,8 @@ class Box{
   static SizedBox h15=SizedBox(height: 15,);
   static SizedBox h20=SizedBox(height: 20,);
   static SizedBox h25=SizedBox(height: 25,);
+  static SizedBox h50=SizedBox(height: 50,);
+
 
 
   static SizedBox w5=SizedBox(width: 5,);

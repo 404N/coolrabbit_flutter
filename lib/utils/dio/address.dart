@@ -9,4 +9,8 @@ class Address {
   static String register(String email, String password) {
     return "register";
   }
+
+  static String getAllFolder() {
+    return "getAllFolder";
+  }
 }

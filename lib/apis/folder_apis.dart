@@ -4,22 +4,14 @@ import 'package:white_jotter_app/model/folder_entity.dart';
 import 'package:white_jotter_app/utils/dio/address.dart';
 import 'package:white_jotter_app/utils/dio/dio_util.dart';
 
-class LoginApis {
-  Future<List<FolderEntity>> getAllFolder(String email, String password) async {
+class FolderApis {
+  Future<void> getAllFolder({Function onSuccess}) async {
     await DioUtil.request<List<FolderEntity>>(
-      Address.login(email, password),
-      RequestMethod.POST,
-      data: {
-        "email": email,
-        "password": password,
-      },
-      tips: true,
-      showLoading: true,
+      Address.getAllFolder(),
+      RequestMethod.GET,
       onSuccess: (data){
-        return data;
+        onSuccess(data);
       }
     );
   }
-
-
 }

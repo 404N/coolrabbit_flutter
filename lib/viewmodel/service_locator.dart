@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:white_jotter_app/viewmodel/folder_viewmodel.dart';
 import 'home_viewmodel.dart';
 import 'login_viewmodel.dart';
 
@@ -15,5 +16,6 @@ void setupServiceLocator() {
   // // view models
   serviceLocator.registerFactory<HomeIndexViewModel>(() => HomeIndexViewModel());
   serviceLocator.registerFactory<LoginViewModel>(() => LoginViewModel());
+  serviceLocator.registerFactory<FolderViewModel>(() => FolderViewModel());
 
 }
