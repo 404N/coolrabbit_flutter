@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
@@ -22,8 +23,9 @@ class DioUtil {
 // 请求实例
   static Dio instance;
 
-  // static final baseUrl = "http://101.37.70.95:8080/";
-  static final baseUrl = "http://localhost:8080/";
+  static final baseUrl = "http://101.37.70.95:8080/";
+
+  // static final baseUrl = "http://localhost:8080/";
 
   // 初始化请求实例
   static void initInstance() {
@@ -58,7 +60,7 @@ class DioUtil {
         return options;
       }, onResponse: (option) async {
         if (option.statusCode == HttpStatus.ok) {
-          option.data = BaseEntity.fromJson(option.data);
+          // option.data = BaseEntity.fromJson(option.data);
         } else {
           option.data = BaseEntity(
             "500",
@@ -72,7 +74,7 @@ class DioUtil {
   }
 
   /// 请求
-  static Future<Response<BaseEntity>> request(
+  static Future<T> request<T>(
     String url,
     RequestMethod method, {
     dynamic data,
@@ -92,53 +94,52 @@ class DioUtil {
     /// 正确时弹出提示
     bool successTips = false,
     bool useHost = true,
-  }) {
+    Function(T t) onSuccess,
+    Function(String code, String msg) onError,
+  }) async {
     // 展示Loading
     if (showLoading) {
       EasyLoading.show(status: "");
     }
-    Future<Response<BaseEntity>> response;
+    var response;
     switch (method) {
       case RequestMethod.GET:
-        response = DioUtil.instance.get(
+        response = await DioUtil.instance.get(
           url,
           queryParameters: queryParameters,
         );
         break;
       case RequestMethod.DELETE:
-        response =
-            DioUtil.instance.delete(url, queryParameters: queryParameters);
+        response = await DioUtil.instance
+            .delete(url, queryParameters: queryParameters);
         break;
       case RequestMethod.PUT:
-        response = DioUtil.instance.put(url, data: data);
+        response = await DioUtil.instance.put(url, data: data);
         break;
       case RequestMethod.POST:
-        response = DioUtil.instance.post(url, data: data);
+        response = await DioUtil.instance.post(url, data: data);
         break;
     }
     Completer<Response<BaseEntity<dynamic>>> completer = Completer();
-    response.then((value) {
+    try{
       if (showLoading) {
         EasyLoading.dismiss();
       }
-      if (value.data.code == "200") {
-        // 请求成功
+      BaseEntity<T> result = BaseEntity<T>.fromJson(response.data);
+      if (result.code == "200") {
         if (successTips || tips) {
-          Fluttertoast.showToast(
-              msg: value.data.msg, gravity: ToastGravity.CENTER);
+          Fluttertoast.showToast(msg: result.msg, gravity: ToastGravity.CENTER);
         }
-        return value.data.data;
+        onSuccess(result.data);
       } else {
         if (errorTips || tips) {
-          Fluttertoast.showToast(
-              msg: value.data.msg, gravity: ToastGravity.CENTER);
+          Fluttertoast.showToast(msg: result.msg, gravity: ToastGravity.CENTER);
         }
+        onError(result.code, result.msg);
       }
-    }).catchError((e) {
+    }catch(e){
       EasyLoading.dismiss();
-      EasyLoading.showInfo("网络链接缓慢");
       completer.completeError(e);
-    });
-    return completer.future;
+    }
   }
 }

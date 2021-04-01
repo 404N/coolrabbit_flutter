@@ -68,6 +68,7 @@ class _FolderViewState extends State<FolderView> {
                     // 点击选项的时候
                     switch (action) {
                       case '0':
+                        popDialog();
                         break;
                       case '1':
                         break;
@@ -157,6 +158,32 @@ class _FolderViewState extends State<FolderView> {
           ],
         ),
       ),
+    );
+  }
+
+  void popDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return new AlertDialog(
+          title: new Text('标题'),
+          content:Column(
+            children: [
+              Center(
+                child: Text("新建文件夹"),
+              )
+            ],
+          ),
+          actions: <Widget>[
+            new TextButton(
+              child: Text('确定'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

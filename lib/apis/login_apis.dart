@@ -6,7 +6,8 @@ import 'package:dio/dio.dart';
 
 class LoginApis {
   Future<UserEntity> login(String email, String password) async {
-    return DioUtil.request(
+    UserEntity data;
+    await DioUtil.request<UserEntity>(
       Address.login(email, password),
       RequestMethod.POST,
       data: {
@@ -15,9 +16,13 @@ class LoginApis {
       },
       tips: true,
       showLoading: true,
-    ).then((value) {
-      return JsonConvert.fromJsonAsT<UserEntity>(value);
-    });
+      onSuccess: (value) {
+        data=value;
+      },
+      onError: (code, msg) {},
+    );
+    print(data.email);
+    return data;
   }
 
   Future<bool> register(String email, String password) {
