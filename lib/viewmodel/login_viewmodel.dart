@@ -11,12 +11,14 @@ class LoginViewModel extends ChangeNotifier {
   LoginApis _apis = LoginApis();
 
   Future<void> login(BuildContext context) async {
-    await _apis.login(userName.text, password.text).then((value) {
-      print(123);
-      userEntity=value;
-      SpUtil.putString(StorageKey.TOKEN, userEntity.token);
-      print(userEntity.email);
-      Navigator.pop(context);
-    });
+    await _apis.login(
+      email: userName.text,
+      password: password.text,
+      onSuccess: (value) {
+        userEntity = value;
+        SpUtil.putString(StorageKey.TOKEN, userEntity.token);
+        Navigator.pop(context);
+      },
+    );
   }
 }

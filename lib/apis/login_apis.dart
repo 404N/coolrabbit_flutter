@@ -5,8 +5,7 @@ import 'package:white_jotter_app/utils/dio/dio_util.dart';
 import 'package:dio/dio.dart';
 
 class LoginApis {
-  Future<UserEntity> login(String email, String password) async {
-    UserEntity data;
+  Future<void> login({String email, String password,Function onSuccess}) async {
     await DioUtil.request<UserEntity>(
       Address.login(email, password),
       RequestMethod.POST,
@@ -17,12 +16,11 @@ class LoginApis {
       tips: true,
       showLoading: true,
       onSuccess: (value) {
-        data=value;
+        onSuccess(value);
       },
-      onError: (code, msg) {},
+      onError: (code, msg) {
+      },
     );
-    print(data.email);
-    return data;
   }
 
   Future<bool> register(String email, String password) {

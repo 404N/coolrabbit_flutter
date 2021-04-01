@@ -74,7 +74,7 @@ class DioUtil {
   }
 
   /// 请求
-  static Future<T> request<T>(
+  static Future<void> request<T>(
     String url,
     RequestMethod method, {
     dynamic data,
