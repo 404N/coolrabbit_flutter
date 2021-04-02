@@ -15,7 +15,8 @@ class FolderView extends StatefulWidget {
   _FolderViewState createState() => _FolderViewState();
 }
 
-class _FolderViewState extends State<FolderView> with AutomaticKeepAliveClientMixin {
+class _FolderViewState extends State<FolderView>
+    with AutomaticKeepAliveClientMixin {
   FolderViewModel model = serviceLocator<FolderViewModel>();
 
   @override
@@ -40,65 +41,7 @@ class _FolderViewState extends State<FolderView> with AutomaticKeepAliveClientMi
           centerTitle: true,
           elevation: 0,
           actions: [
-            AspectRatio(
-              aspectRatio: 1,
-              child: Center(
-                child: Container(
-                  height: 30.H,
-                  width: 30.H,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15.H),
-                    ),
-                    border: Border.all(
-                      width: 1,
-                      color: WJColors.color_CCCCCC,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: WJColors.color_CCCCCC.withOpacity(0.2),
-                        offset: Offset(0, 0),
-                        blurRadius: 1,
-                        spreadRadius: 1,
-                      ),
-                    ],
-                    color: WJColors.color_F5F6F7,
-                  ),
-                  child: Center(
-                    child: PopupMenuButton<String>(
-                      icon: Icon(Icons.more_horiz_sharp),
-                      itemBuilder: (BuildContext context) =>
-                          <PopupMenuItem<String>>[
-                        PopupMenuItem<String>(
-                          value: '0',
-                          child: Text('新建文件夹'),
-                        ),
-                        PopupMenuItem<String>(
-                          value: '1',
-                          child: Text('按修改时间'),
-                        ),
-                        PopupMenuItem<String>(
-                          value: '2',
-                          child: Text('按创建时间'),
-                        ),
-                      ],
-                      onSelected: (String action) {
-                        // 点击选项的时候
-                        switch (action) {
-                          case '0':
-                            popDialog();
-                            break;
-                          case '1':
-                            break;
-                          case '2':
-                            break;
-                        }
-                      },
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            actionAdd(),
             Box.w15,
           ],
         ),
@@ -130,7 +73,7 @@ class _FolderViewState extends State<FolderView> with AutomaticKeepAliveClientMi
                               } else {
                                 return FolderOrNoteWidget(
                                   title: model.folderList[index - 1].folderName,
-                                  date: model.folderList[index - 1].fatherId,
+                                  date: model.folderList[index - 1].createDate,
                                 );
                               }
                             },
@@ -188,32 +131,117 @@ class _FolderViewState extends State<FolderView> with AutomaticKeepAliveClientMi
     );
   }
 
+  AspectRatio actionAdd() {
+    return AspectRatio(
+      aspectRatio: 1,
+      child: Center(
+        child: Container(
+          height: 30.H,
+          width: 30.H,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(15.H),
+            ),
+            border: Border.all(
+              width: 1,
+              color: WJColors.color_CCCCCC,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: WJColors.color_CCCCCC.withOpacity(0.2),
+                offset: Offset(0, 0),
+                blurRadius: 1,
+                spreadRadius: 1,
+              ),
+            ],
+            color: WJColors.color_F5F6F7,
+          ),
+          child: Center(
+            child: PopupMenuButton<String>(
+              icon: Icon(Icons.more_horiz_sharp),
+              itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+                PopupMenuItem<String>(
+                  value: '0',
+                  child: Text('新建文件夹'),
+                ),
+                PopupMenuItem<String>(
+                  value: '1',
+                  child: Text('按修改时间'),
+                ),
+                PopupMenuItem<String>(
+                  value: '2',
+                  child: Text('按创建时间'),
+                ),
+              ],
+              onSelected: (String action) {
+                // 点击选项的时候
+                switch (action) {
+                  case '0':
+                    popDialog();
+                    break;
+                  case '1':
+                    break;
+                  case '2':
+                    break;
+                }
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   void popDialog() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return new AlertDialog(
-          title: new Text('标题'),
-          content: Column(
-            children: [
-              Center(
-                child: Text("新建文件夹"),
-              )
+        return Container(
+          height: 200.H,
+          width: 300.W,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(12.H),
+            ),
+          ),
+          child: AlertDialog(
+            title: Text('新建文件夹'),
+            content: Container(
+              width: 220.W,
+              height: 50.H,
+              child: TextField(
+                controller: model.controller,
+                decoration: InputDecoration(
+                  hintText: "请输入名称",
+                  hintStyle: WjStyle.hintTextStyle,
+                  counterText: "",
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
+                ),
+                maxLength: 14,
+                autocorrect: false,
+                style: WjStyle.inputTextStyle,
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: Text('取消'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: Text('确定'),
+                onPressed: () {
+                  model.createFolder(context);
+                },
+              ),
             ],
           ),
-          actions: <Widget>[
-            new TextButton(
-              child: Text('确定'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
         );
       },
     );
   }
 
   @override
-  bool wantKeepAlive=true;
+  bool wantKeepAlive = true;
 }

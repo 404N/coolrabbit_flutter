@@ -415,6 +415,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.0"
+  shelf:
+    dependency: transitive
+    description:
+      name: shelf
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.7.9"
+  shelf_proxy:
+    dependency: "direct main"
+    description:
+      name: shelf_proxy
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.0+7"
   sky_engine:
     dependency: transitive
     description: flutter

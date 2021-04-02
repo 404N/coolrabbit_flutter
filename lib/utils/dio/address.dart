@@ -13,4 +13,8 @@ class Address {
   static String getAllFolder() {
     return "getAllFolder";
   }
+
+  static String createFolder() {
+    return "createFolder";
+  }
 }

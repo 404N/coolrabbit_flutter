@@ -5,4 +5,5 @@ class FolderEntity with JsonConvert<FolderEntity> {
 	String userId;
 	String folderName;
 	String fatherId;
+	String createDate;
 }

@@ -36,9 +36,15 @@ class FolderOrNoteWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(title,style: WjStyle.folderTitleStyle,),
+              Text(
+                title,
+                style: WjStyle.folderTitleStyle,
+              ),
               Box.h5,
-              Text(date,style: WjStyle.folderDataStyle,),
+              Text(
+                date.substring(0, 16),
+                style: WjStyle.folderDataStyle,
+              ),
             ],
           ),
         ],

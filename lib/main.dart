@@ -19,7 +19,7 @@ void main() async {
     SpUtil.getInstance();
     runApp(
       ScreenUtilInit(
-        designSize: Size(360, 690),
+        designSize: Size(375, 812),
         allowFontScaling: false,
         builder: () => App(),
       ),

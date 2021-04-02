@@ -40,12 +40,6 @@ class DioUtil {
       },
     );
     DioUtil.instance = new Dio(options);
-    (DioUtil.instance.httpClientAdapter as DefaultHttpClientAdapter)
-        .onHttpClientCreate = (client) {
-      client.badCertificateCallback = (cert, host, port) {
-        return true;
-      };
-    };
 
     /// 统一添加身份验证请求头
     DioUtil.instance.interceptors.add(
@@ -126,6 +120,7 @@ class DioUtil {
       if (showLoading) {
         EasyLoading.dismiss();
       }
+      print(T);
       BaseEntity<T> result = BaseEntity<T>.fromJson(response.data);
       if (result.code == "200") {
         if (successTips || tips) {

@@ -14,4 +14,18 @@ class FolderApis {
       }
     );
   }
+
+  Future<void> createFolder({String fatherId,String folderName,Function onSuccess}) async {
+    await DioUtil.request(
+        Address.createFolder(),
+        RequestMethod.POST,
+        data: {
+          "fatherId": fatherId,
+          "folderName": folderName,
+        },
+        onSuccess: (data){
+          onSuccess(data);
+        }
+    );
+  }
 }

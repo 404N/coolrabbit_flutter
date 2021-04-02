@@ -13,6 +13,9 @@ folderEntityFromJson(FolderEntity data, Map<String, dynamic> json) {
 	if (json['fatherId'] != null) {
 		data.fatherId = json['fatherId'].toString();
 	}
+	if (json['createDate'] != null) {
+		data.createDate = json['createDate'].toString();
+	}
 	return data;
 }
 
@@ -22,5 +25,6 @@ Map<String, dynamic> folderEntityToJson(FolderEntity entity) {
 	data['userId'] = entity.userId;
 	data['folderName'] = entity.folderName;
 	data['fatherId'] = entity.fatherId;
+	data['createDate'] = entity.createDate;
 	return data;
 }

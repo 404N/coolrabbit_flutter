@@ -123,6 +123,16 @@ class WjStyle {
   static double size29 = 29.Sp;
   static double size8 = 8.Sp;
 
+  static TextStyle hintTextStyle = TextStyle(
+    color: WJColors.color_CCCCCC,
+    fontSize: size16,
+  );
+
+  static TextStyle inputTextStyle = TextStyle(
+    color: WJColors.primaryDarkValue,
+    fontSize: size16,
+  );
+
   static TextStyle loginStyle = TextStyle(
     color: WJColors.color_121917,
     fontSize: size29,
